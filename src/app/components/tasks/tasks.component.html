@@ -1,0 +1,24 @@
+<div class="container my-5">
+    <h1 class="mb-3">Dostępne zadania</h1>
+    <table class="table table-striped" *ngIf="task_list">
+        <thead>
+            <tr>                
+                <th scope="col">Olimpiada</th>
+                <th scope="col">Etap</th>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Skrót</th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of task_list; index as i">
+                <td>{{ task.olympiad }}</td>
+                <td>{{ task.stage }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.code }}</td>
+                <td><a [routerLink]="['/tasks', 'edit', task.id]">Edit</a></td>                
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!task_list || task_list.length == 0 ">Nie znaleziono zadań</p>
+</div>

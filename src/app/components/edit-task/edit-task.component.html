@@ -1,0 +1,38 @@
+<div clas="container my-5">
+    <h1 class="mb-3">Edit the task</h1>
+    <div class="row">
+        <div class="col-3">
+            <form #form="ngForm" (ngSubmit)="updateTask()">
+                <div class="mb-3">
+                    <label for="id" clas="form-label">Id</label>
+                    <input type="texx" class="form-control" id="id" readonly
+                    name="id" [(ngModel)] = "taskDetails.id">          
+                </div>
+                <div class="mb-3">
+                    <label for="Name" clas="form-label">Nazwa zadania</label>
+                    <input type="text" class="form-control" id="name" 
+                    name="Name" [(ngModel)] = "taskDetails.name">          
+                </div>
+                <div class="mb-3">
+                    <label for="Olympiad" clas="form-label">Numer olimpiady</label>
+                    <input type="number" class="form-control" id="Olympiad" 
+                    name="Olympiad" [(ngModel)] = "taskDetails.olympiad">          
+                </div>
+                <div class="mb-3">
+                    <label for="Stage" clas="form-label">Etap olimpiady</label>
+                    <input type="number" class="form-control" id="Stage" 
+                    name="Stage" [(ngModel)] = "taskDetails.stage">           
+                </div>
+                <div class="mb-3">
+                    <label for="Code" clas="form-label">kod zadania</label>
+                    <input type="text" class="form-control" id="Code" 
+                    name="Code" [(ngModel)] = "taskDetails.code">            
+                </div>
+        
+                <button type="submit" class="btn btn-primary mr-7">Save</button>
+                <button type="button" class="btn btn-danger"
+                (click)="deleteTask(taskDetails.id)">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>

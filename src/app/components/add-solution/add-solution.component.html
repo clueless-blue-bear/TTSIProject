@@ -1,0 +1,37 @@
+<div clas="container d-lg-flex aligns-items-center align-content-center justify-content-center ml-100 align-self-center" style="width: 50%; margin-left: 35%;">
+    <h1 class="p-3">Dodaj własne rozwiązanie</h1>
+    <div class="p-3 w-50">
+        <form class="form-vertical" #addSolutionForm="ngForm" (ngSubmit)="addSolution()">
+            <div class="mb-3">
+                <label for="Name" clas="form-label">Nazwa zadania</label>
+                <select class="form-control" id="Name" name="Name" 
+                        required
+                        [(ngModel)]="addSolutionRequest.taskName">
+                    <option *ngFor="let task of available_tasks" [value]="task.name">{{ task.name }}</option>
+                </select>                
+            </div>
+
+            <div class="mb-3">
+                <label for="User" clas="form-label">Nazwa użytkownika</label>
+                <input type="text" class="form-control" id="User" required
+                name="User" [(ngModel)]="addSolutionRequest.user" #User="ngModel"><br />
+                <div [hidden]="User.valid || User.pristine" 
+                class="alert alert-danger">
+                    Podaj nazwę użytkownika
+                </div>     
+            </div>            
+
+            <div class="mb-3">
+                <label for="File" clas="form-label">Plik rozwiązania</label>
+                <input type="file" class="form-control-file" id="File" name="File" 
+                     [(ngModel)]="solutionFile" required #File="ngModel"
+                     (change)="onFileChange($event)"><br />   
+                <div [hidden]="File.valid || File.pristine" 
+                     class="alert alert-danger">
+                    {{fileMessage}}
+                </div> 
+            </div>            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

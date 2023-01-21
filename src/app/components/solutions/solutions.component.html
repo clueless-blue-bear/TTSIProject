@@ -1,0 +1,22 @@
+<div class="container my-5">
+    <h1 class="mb-3">Dostępne rozwiązania</h1>
+    <table class="table table-striped" *ngIf="solutions_list">
+        <thead>
+            <tr>                
+                <th scope="col">Zadanie</th>
+                <th scope="col">Użytkownik</th>
+                <th scope="col">Wynik</th>                
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let solution of solutions_list; index as i">
+                <td>{{ solution.task }}</td>
+                <td>{{ solution.user }}</td>
+                <td>{{ solution.result }}</td>                
+                <td><a [routerLink]="['/solutions', 'edit', solution.id]">Edit</a></td>                
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!solutions_list || solutions_list.length == 0 ">Nie znaleziono zadań</p>
+</div>

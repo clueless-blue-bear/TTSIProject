@@ -1,0 +1,32 @@
+<div *ngIf="isUserAuthenticated()" clas="container d-lg-flex aligns-items-center align-content-center justify-content-center ml-100 align-self-center" style="width: 50%; margin-left: 35%;">
+    <h1 class="p-3">Dodaj zadanie do zbioru</h1>
+    <div class="p-3 w-50">
+        <form class="form-vertical" #form="ngForm" (ngSubmit)="addTask()">
+            <div class="mb-3">
+                <label for="Name" clas="form-label">Nazwa zadania</label>
+                <input type="text" class="form-control" id="name" 
+                name="Name" [(ngModel)] = "addTaskRequest.name">          
+            </div>
+            <div class="mb-3">
+                <label for="Olympiad" clas="form-label">Numer olimpiady</label>
+                <input type="number" class="form-control" id="Olympiad" 
+                name="Olympiad" [(ngModel)] = "addTaskRequest.olympiad">          
+            </div>
+            <div class="mb-3">
+                <label for="Stage" clas="form-label">Etap olimpiady</label>
+                <input type="number" class="form-control" id="Stage" 
+                name="Stage" [(ngModel)] = "addTaskRequest.stage">           
+            </div>
+            <div class="mb-3">
+                <label for="Code" clas="form-label">kod zadania</label>
+                <input type="text" class="form-control" id="Code" 
+                name="Code" [(ngModel)] = "addTaskRequest.code">            
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div *ngIf="!isUserAuthenticated()">
+    <h1>Tylko administrator może dodawać zadania!</h1>
+</div>
